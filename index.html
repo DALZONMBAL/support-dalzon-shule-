@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Centre d'assistance — Dalzon Shule</title>
+
+  <meta name="description"
+        content="Centre d'assistance officiel de Dalzon Shule. Trouvez de l'aide concernant votre compte, l'application, les notes, les présences et les services scolaires.">
+
+  <meta name="theme-color" content="#0b57d0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e6e9ef;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(15px);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      min-height: 72px;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: linear-gradient(135deg, #0b57d0, #4c8dff);
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 8px 20px rgba(11,87,208,.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #526071;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #0b57d0;
+    }
+
+    .nav-button {
+      background: #0b57d0;
+      color: white !important;
+      padding: 11px 17px;
+      border-radius: 10px;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(76,141,255,.25), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(11,87,208,.20), transparent 30%),
+        linear-gradient(135deg, #092f78, #0b57d0);
+
+      color: white;
+      padding: 82px 20px 105px;
+    }
+
+    .hero-content {
+      max-width: 920px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 14px;
+      border-radius: 30px;
+
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.2);
+
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.08;
+      margin-bottom: 20px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: auto;
+      opacity: .9;
+      font-size: 17px;
+    }
+
+    /* =========================
+       SEARCH
+    ========================== */
+
+    .search-container {
+      max-width: 760px;
+      margin: -34px auto 0;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .search-box {
+      background: white;
+      border-radius: 18px;
+      padding: 8px;
+
+      display: flex;
+      align-items: center;
+
+      box-shadow: 0 18px 50px rgba(19,38,70,.16);
+      border: 1px solid #e6e9ef;
+    }
+
+    .search-icon {
+      width: 48px;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 15px 10px;
+      font-size: 16px;
+      color: #172033;
+    }
+
+    /* =========================
+       MAIN
+    ========================== */
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 65px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 31px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #667085;
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================== */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 80px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid #e7eaf0;
+      border-radius: 18px;
+      padding: 25px;
+
+      transition: .25s ease;
+      cursor: pointer;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(25,40,70,.09);
+      border-color: #b9d0ff;
+    }
+
+    .category-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #edf4ff;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .category h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .category p {
+      color: #697586;
+      font-size: 14px;
+    }
+
+    /* =========================
+       FAQ
+    ========================== */
+
+    .faq-container {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .faq {
+      background: white;
+      border: 1px solid #e5e8ee;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: none;
+
+      padding: 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      text-align: left;
+      cursor: pointer;
+      font-weight: 700;
+      color: #172033;
+    }
+
+    .faq-question span:last-child {
+      font-size: 22px;
+      color: #0b57d0;
+      transition: .2s;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+      color: #667085;
+      padding: 0 20px;
+    }
+
+    .faq.active .faq-answer {
+      max-height: 300px;
+      padding: 0 20px 20px;
+    }
+
+    .faq.active .faq-question span:last-child {
+      transform: rotate(45deg);
+    }
+
+    /* =========================
+       SUPPORT FORM
+    ========================== */
+
+    .support-section {
+      margin-top: 85px;
+
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .support-info {
+      background: linear-gradient(145deg, #092f78, #0b57d0);
+      color: white;
+      border-radius: 22px;
+      padding: 35px;
+      min-height: 100%;
+    }
+
+    .support-info h2 {
+      font-size: 31px;
+      margin-bottom: 15px;
+    }
+
+    .support-info p {
+      opacity: .9;
+      margin-bottom: 25px;
+    }
+
+    .support-item {
+      display: flex;
+      gap: 13px;
+      margin: 20px 0;
+    }
+
+    .support-item-icon {
+      font-size: 21px;
+    }
+
+    .support-form {
+      background: white;
+      border: 1px solid #e5e8ee;
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: 0 12px 40px rgba(20,35,60,.06);
+    }
+
+    .support-form h2 {
+      margin-bottom: 6px;
+    }
+
+    .form-description {
+      color: #667085;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #dce1e8;
+      border-radius: 11px;
+      padding: 13px 14px;
+      outline: none;
+      background: #fbfcfe;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #0b57d0;
+      box-shadow: 0 0 0 3px rgba(11,87,208,.09);
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      margin-top: 20px;
+      width: 100%;
+
+      border: none;
+      border-radius: 12px;
+      padding: 15px;
+
+      background: #0b57d0;
+      color: white;
+
+      font-weight: 800;
+      cursor: pointer;
+
+      transition: .2s;
+    }
+
+    .submit-button:hover {
+      background: #0846a8;
+      transform: translateY(-1px);
+    }
+
+    /* =========================
+       QUICK LINKS
+    ========================== */
+
+    .quick-links {
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .quick-link {
+      background: white;
+      border: 1px solid #e5e8ee;
+      border-radius: 17px;
+      padding: 22px;
+      transition: .2s;
+    }
+
+    .quick-link:hover {
+      border-color: #b9d0ff;
+      transform: translateY(-3px);
+    }
+
+    .quick-link strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .quick-link small {
+      color: #697586;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #101827;
+      color: #aeb7c5;
+      padding: 45px 20px 25px;
+    }
+
+    .footer-content {
+      max-width: 1180px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand {
+      color: white;
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .footer-column h4 {
+      color: white;
+      margin-bottom: 14px;
+    }
+
+    .footer-column a {
+      display: block;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .copyright {
+      max-width: 1180px;
+      margin: 35px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #273142;
+      font-size: 13px;
+    }
+
+    /* =========================
+       MODAL
+    ========================== */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+
+      background: rgba(7,16,30,.65);
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+      z-index: 2000;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 450px;
+      width: 100%;
+      border-radius: 22px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 25px 70px rgba(0,0,0,.25);
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 18px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #e9f8ef;
+      font-size: 32px;
+    }
+
+    .ticket-number {
+      background: #f2f5f9;
+      border-radius: 10px;
+      padding: 13px;
+      margin: 20px 0;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .close-modal {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 11px;
+      background: #0b57d0;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 900px) {
+
+      .categories {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .support-section {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      .hero {
+        padding: 60px 18px 85px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      main {
+        padding: 50px 16px;
+      }
+
+      .categories {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .support-form,
+      .support-info {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================== -->
+
+<header>
+  <nav class="nav">
+
+    <a href="#" class="brand">
+      <div class="logo">D</div>
+      <span>Dalzon Shule</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#faq">FAQ</a>
+      <a href="#support">Support</a>
+
+      <a
+        href="https://dalzonshule.com"
+        class="nav-button">
+        Dalzon Shule
+      </a>
+    </div>
+
+  </nav>
+</header>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="badge">
+      🛡️ Support officiel Dalzon Shule
+    </div>
+
+    <h1>
+      Comment pouvons-nous vous aider ?
+    </h1>
+
+    <p>
+      Retrouvez rapidement les réponses à vos questions
+      concernant Dalzon Shule, votre compte et les services scolaires.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SEARCH
+========================== -->
+
+<div class="search-container">
+
+  <div class="search-box">
+
+    <div class="search-icon">
+      🔎
+    </div>
+
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Rechercher une aide..."
+      aria-label="Rechercher une aide">
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN
+========================== -->
+
+<main>
+
+  <!-- CATEGORIES -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>Que recherchez-vous ?</h2>
+
+      <p>
+        Choisissez une catégorie pour trouver rapidement de l'aide.
+      </p>
+
+    </div>
+
+
+    <div class="categories">
+
+      <div class="category" data-search="connexion mot de passe compte">
+        <div class="category-icon">🔐</div>
+        <h3>Connexion</h3>
+        <p>
+          Aide concernant la connexion, le matricule et le mot de passe.
+        </p>
+      </div>
+
+
+      <div class="category" data-search="élève compte élève">
+        <div class="category-icon">🎓</div>
+        <h3>Compte élève</h3>
+        <p>
+          Informations et assistance concernant le compte élève.
+        </p>
+      </div>
+
+
+      <div class="category" data-search="parent famille compte parent">
+        <div class="category-icon">👨‍👩‍👧</div>
+        <h3>Compte parent</h3>
+        <p>
+          Assistance pour les parents et le suivi scolaire.
+        </p>
+      </div>
+
+
+      <div class="category" data-search="application téléphone app">
+        <div class="category-icon">📱</div>
+        <h3>Application</h3>
+        <p>
+          Problèmes liés à l'application Dalzon Shule.
+        </p>
+      </div>
+
+
+      <div class="category" data-search="notes résultats">
+        <div class="category-icon">📊</div>
+        <h3>Notes & résultats</h3>
+        <p>
+          Comprendre les notes, résultats et informations scolaires.
+        </p>
+      </div>
+
+
+      <div class="category" data-search="présence absence calendrier">
+        <div class="category-icon">📅</div>
+        <h3>Présences & calendrier</h3>
+        <p>
+          Assistance concernant les présences et le calendrier scolaire.
+        </p>
+      </div>
+
+
+      <div class="category" data-search="documents fichier téléchargement">
+        <div class="category-icon">📄</div>
+        <h3>Documents</h3>
+        <p>
+          Aide concernant les documents disponibles sur la plateforme.
+        </p>
+      </div>
+
+
+      <div class="category" data-search="bug problème erreur signaler">
+        <div class="category-icon">🐛</div>
+        <h3>Signaler un problème</h3>
+        <p>
+          Signalez une erreur ou un dysfonctionnement.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FAQ -->
+
+  <section id="faq">
+
+    <div class="section-title">
+
+      <h2>Questions fréquentes</h2>
+
+      <p>
+        Les réponses aux problèmes les plus courants.
+      </p>
+
+    </div>
+
+
+    <div class="faq-container">
+
+      <div class="faq">
+
+        <button class="faq-question">
+          <span>Comment me connecter à Dalzon Shule ?</span>
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            Utilisez les identifiants qui vous ont été fournis
+            par votre établissement. Si vous ne pouvez pas vous connecter,
+            contactez le support.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="faq">
+
+        <button class="faq-question">
+          <span>J'ai oublié mon mot de passe. Que faire ?</span>
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            Utilisez la procédure de récupération disponible sur
+            l'écran de connexion. Si cette option n'est pas disponible,
+            contactez votre établissement ou le support Dalzon Shule.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="faq">
+
+        <button class="faq-question">
+          <span>J'ai perdu mon matricule.</span>
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            Pour des raisons de sécurité, le support ne doit pas
+            communiquer d'informations sensibles sans vérification.
+            Contactez votre établissement afin de récupérer vos informations.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="faq">
+
+        <button class="faq-question">
+          <span>Mes notes ne s'affichent pas.</span>
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            Vérifiez votre connexion Internet et actualisez votre compte.
+            Si le problème persiste, envoyez une demande au support
+            en indiquant précisément le problème rencontré.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="faq">
+
+        <button class="faq-question">
+          <span>Comment signaler une erreur ?</span>
+          <span>+</span>
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            Utilisez le formulaire de support ci-dessous.
+            Décrivez clairement le problème sans communiquer votre mot de passe.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SUPPORT -->
+
+  <section id="support" class="support-section">
+
+    <div class="support-info">
+
+      <h2>Besoin d'aide ?</h2>
+
+      <p>
+        Vous n'avez pas trouvé la réponse à votre question ?
+        Envoyez-nous une demande d'assistance.
+      </p>
+
+
+      <div class="support-item">
+
+        <div class="support-item-icon">🔒</div>
+
+        <div>
+          <strong>Sécurité</strong>
+          <p>
+            Ne partagez jamais votre mot de passe.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="support-item">
+
+        <div class="support-item-icon">⚡</div>
+
+        <div>
+          <strong>Demande claire</strong>
+          <p>
+            Décrivez précisément le problème rencontré.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="support-item">
+
+        <div class="support-item-icon">📋</div>
+
+        <div>
+          <strong>Numéro de demande</strong>
+          <p>
+            Une référence sera générée après l'envoi.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="support-form">
+
+      <h2>Envoyer une demande</h2>
+
+      <p class="form-description">
+        Remplissez les informations ci-dessous.
+        Ne renseignez jamais votre mot de passe.
+      </p>
+
+
+      <form id="supportForm">
+
+        <div class="form-grid">
+
+          <div class="field">
+
+            <label for="name">
+              Nom complet
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              required
+              placeholder="Votre nom">
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="email">
+              Adresse e-mail
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="vous@example.com">
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="account">
+              Type de compte
+            </label>
+
+            <select id="account" required>
+
+              <option value="">
+                Sélectionner
+              </option>
+
+              <option>
+                Élève
+              </option>
+
+              <option>
+                Parent
+              </option>
+
+              <option>
+                Établissement
+              </option>
+
+              <option>
+                Autre
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="subject">
+              Sujet
+            </label>
+
+            <select id="subject" required>
+
+              <option value="">
+                Sélectionner
+              </option>
+
+              <option>
+                Problème de connexion
+              </option>
+
+              <option>
+                Compte élève
+              </option>
+
+              <option>
+                Compte parent
+              </option>
+
+              <option>
+                Application
+              </option>
+
+              <option>
+                Notes / résultats
+              </option>
+
+              <option>
+                Présences
+              </option>
+
+              <option>
+                Documents
+              </option>
+
+              <option>
+                Signaler un bug
+              </option>
+
+              <option>
+                Autre
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="field full">
+
+            <label for="message">
+              Décrivez votre problème
+            </label>
+
+            <textarea
+              id="message"
+              required
+              placeholder="Expliquez-nous le problème rencontré..."></textarea>
+
+          </div>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="submit-button">
+
+          Envoyer ma demande
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUICK LINKS -->
+
+  <section class="quick-links">
+
+    <a
+      class="quick-link"
+      href="https://dalzonshule.com">
+
+      <strong>🏠 Dalzon Shule</strong>
+
+      <small>
+        Retour vers la plateforme principale.
+      </small>
+
+    </a>
+
+
+    <a
+      class="quick-link"
+      href="https://info.dalzonshule.com">
+
+      <strong>ℹ️ Informations</strong>
+
+      <small>
+        Découvrez Dalzon Shule et ses services.
+      </small>
+
+    </a>
+
+
+    <a
+      class="quick-link"
+      href="https://conditionsdutilisation.dalzonshule.com">
+
+      <strong>📜 Conditions d'utilisation</strong>
+
+      <small>
+        Consultez les conditions d'utilisation.
+      </small>
+
+    </a>
+
+  </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+  <div class="footer-content">
+
+    <div>
+
+      <div class="footer-brand">
+        DALZON SHULE
+      </div>
+
+      <p>
+        Connecter l'École à la Maison.
+        Une plateforme dédiée à l'éducation et au suivi scolaire.
+      </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Navigation</h4>
+
+      <a href="https://dalzonshule.com">
+        Dalzon Shule
+      </a>
+
+      <a href="https://info.dalzonshule.com">
+        Informations
+      </a>
+
+      <a href="#faq">
+        FAQ
+      </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Assistance</h4>
+
+      <a href="#support">
+        Contacter le support
+      </a>
+
+      <a href="https://conditionsdutilisation.dalzonshule.com">
+        Conditions d'utilisation
+      </a>
+
+      <a href="#">
+        Confidentialité
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+
+    © <span id="year"></span> Dalzon Shule — Tous droits réservés.
+
+  </div>
+
+</footer>
+
+
+<!-- =========================
+     MODAL
+========================== -->
+
+<div class="modal" id="successModal">
+
+  <div class="modal-content">
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <h2>Demande enregistrée</h2>
+
+    <p>
+      Votre demande a été préparée avec succès.
+    </p>
+
+    <div class="ticket-number" id="ticketNumber">
+      DS-000000
+    </div>
+
+    <p>
+      Conservez ce numéro pour retrouver votre demande.
+    </p>
+
+    <br>
+
+    <button
+      class="close-modal"
+      onclick="closeModal()">
+
+      Fermer
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  /* =========================
+     YEAR
+  ========================== */
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+  /* =========================
+     FAQ
+  ========================== */
+
+  const faqs =
+    document.querySelectorAll(".faq");
+
+  faqs.forEach(faq => {
+
+    const button =
+      faq.querySelector(".faq-question");
+
+    button.addEventListener("click", () => {
+
+      faq.classList.toggle("active");
+
+    });
+
+  });
+
+
+  /* =========================
+     SEARCH
+  ========================== */
+
+  const searchInput =
+    document.getElementById("searchInput");
+
+  const categories =
+    document.querySelectorAll(".category");
+
+  searchInput.addEventListener("input", () => {
+
+    const value =
+      searchInput.value.toLowerCase().trim();
+
+    categories.forEach(category => {
+
+      const text =
+        category.innerText.toLowerCase();
+
+      const keywords =
+        category.dataset.search.toLowerCase();
+
+      if (
+        text.includes(value) ||
+        keywords.includes(value) ||
+        value === ""
+      ) {
+
+        category.style.display = "";
+
+      } else {
+
+        category.style.display = "none";
+
+      }
+
+    });
+
+  });
+
+
+  /* =========================
+     CATEGORY CLICK
+  ========================== */
+
+  categories.forEach(category => {
+
+    category.addEventListener("click", () => {
+
+      const keyword =
+        category.dataset.search.split(" ")[0];
+
+      searchInput.value = keyword;
+
+      searchInput.dispatchEvent(
+        new Event("input")
+      );
+
+      document
+        .getElementById("faq")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    });
+
+  });
+
+
+  /* =========================
+     SUPPORT FORM
+  ========================== */
+
+  const supportForm =
+    document.getElementById("supportForm");
+
+  const modal =
+    document.getElementById("successModal");
+
+  const ticketNumber =
+    document.getElementById("ticketNumber");
+
+
+  supportForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const random =
+      Math.floor(
+        100000 +
+        Math.random() * 900000
+      );
+
+
+    const ticket =
+      "DS-" + random;
+
+
+    ticketNumber.textContent =
+      ticket;
+
+
+    modal.classList.add("show");
+
+
+    /*
+      IMPORTANT :
+
+      Cette version génère une référence
+      côté navigateur.
+
+      Pour recevoir réellement les demandes,
+      il faudra connecter ce formulaire à
+      un backend / une API / un service
+      de formulaire.
+    */
+
+
+    supportForm.reset();
+
+  });
+
+
+  /* =========================
+     CLOSE MODAL
+  ========================== */
+
+  function closeModal() {
+
+    modal.classList.remove("show");
+
+  }
+
+
+  modal.addEventListener("click", function(event) {
+
+    if (event.target === modal) {
+
+      closeModal();
+
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
